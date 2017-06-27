@@ -23,7 +23,7 @@ dat <- data.frame(infection = c(TRUE, TRUE, FALSE, FALSE),
 
 
 
-  ggplot(dat, aes(y = log(value), x = status, label = round(value, 0))) +
+ggplot(dat, aes(x = infection, y = value, fill = diagnosis)) +
   geom_col() +
-  geom_text(vjust = "inward", color = "red") +
+  facet_wrap(~infection, scales = "free") +
   theme_bw()
