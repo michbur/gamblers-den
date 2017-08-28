@@ -11,13 +11,16 @@ ans <- expand.grid(test_accuracy = c(0.900, 0.950, 0.990, 0.999),
     
     FP/TP
   }),
-  should_worry_bin = should_worry < 1)
+  should_worry_bin = should_worry < 1,
+  test_accuracy_nice = paste0("Test accuracy: ", test_accuracy),
+  test_accuracy_nice = factor(test_accuracy_nice, levels = unique(test_accuracy_nice)))
+  
 
 ggplot(ans, aes(x = factor(population_size), 
                 y = factor(disease_rarity), 
                 fill = should_worry_bin)) +
   geom_tile(color = "black") +
-  facet_wrap(~ test_accuracy) +
+  facet_wrap(~ test_accuracy_nice) +
   theme_bw() +
   theme(axis.text.x = element_text(angle = 90))
 

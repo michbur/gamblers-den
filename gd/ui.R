@@ -41,8 +41,8 @@ shinyUI(fluidPage(
     # Show a plot of the generated distribution
     mainPanel(
        plotOutput("distPlot"),
-       tableOutput("decision_table"),
-       textOutput("decision")
+       tableOutput("decision_table")#,
+       #textOutput("decision")
     )
   )
 ))
